@@ -6,10 +6,6 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		C260506821584DCA00DF1078 /* MovieClipsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C260506721584DCA00DF1078 /* MovieClipsUI.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		C260506221584DCA00DF1078 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -24,7 +20,11 @@
 
 /* Begin PBXFileReference section */
 		C260506421584DCA00DF1078 /* libMovieClipsUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMovieClipsUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C260506721584DCA00DF1078 /* MovieClipsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClipsUI.swift; sourceTree = "<group>"; };
+		C260507221584E0A00DF1078 /* topCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topCarouselCell.swift; sourceTree = "<group>"; };
+		C260507321584E0A00DF1078 /* MovieClipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClipsViewController.swift; sourceTree = "<group>"; };
+		C260507421584E0A00DF1078 /* bottomCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomCarouselCell.swift; sourceTree = "<group>"; };
+		C260507521584E0A00DF1078 /* MCCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCCarousel.swift; sourceTree = "<group>"; };
+		C260507921584E0A00DF1078 /* MCClipsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCClipsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +57,37 @@
 		C260506621584DCA00DF1078 /* MovieClipsUI */ = {
 			isa = PBXGroup;
 			children = (
-				C260506721584DCA00DF1078 /* MovieClipsUI.swift */,
+				C260507821584E0A00DF1078 /* Model */,
+				C260507121584E0A00DF1078 /* UI */,
 			);
 			path = MovieClipsUI;
+			sourceTree = "<group>";
+		};
+		C260507121584E0A00DF1078 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C260507321584E0A00DF1078 /* MovieClipsViewController.swift */,
+				C260508021584E5200DF1078 /* Common Carousel */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C260507821584E0A00DF1078 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C260507921584E0A00DF1078 /* MCClipsViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C260508021584E5200DF1078 /* Common Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				C260507521584E0A00DF1078 /* MCCarousel.swift */,
+				C260507221584E0A00DF1078 /* topCarouselCell.swift */,
+				C260507421584E0A00DF1078 /* bottomCarouselCell.swift */,
+			);
+			path = "Common Carousel";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +147,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C260506821584DCA00DF1078 /* MovieClipsUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
