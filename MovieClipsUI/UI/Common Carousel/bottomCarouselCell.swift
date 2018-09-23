@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MovieClipsNetworking
 
 class bottomCarouselCell: UICollectionViewCell {
     
@@ -43,11 +42,19 @@ class bottomCarouselCell: UICollectionViewCell {
     }
     
     func config(imageUrl: URL) {
+        
         self.imageUrl = imageUrl
-        MovieClipsNetworking.image(for: imageUrl) { [weak self] (image) in
-            if self?.imageUrl == imageUrl, let image = image {
-                self?.cellImageView.image = image
+    
+        getData(from: imageUrl) { [weak self] (data, response, error) in
+            guard let data = data, let image = UIImage(data: data) else {
+                return
             }
+            
+            self?.cellImageView.image = image
         }
+    }
+    
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 }

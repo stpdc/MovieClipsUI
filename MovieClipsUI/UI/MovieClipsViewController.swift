@@ -30,8 +30,6 @@ class MovieClipsViewController: UIViewController {
         
         setupViews()
         addConstraints()
-        
-        fetchClips()
     }
     
     private func setupViews() {

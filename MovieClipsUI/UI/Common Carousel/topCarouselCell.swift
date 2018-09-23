@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import MovieClipsNetworking
 
 class topCarouselCell: UICollectionViewCell {
     
@@ -66,11 +65,7 @@ class topCarouselCell: UICollectionViewCell {
     func config(videoUrl: URL) {
         
         self.videoUrl = videoUrl
-        MovieClipsNetworking.video(for: videoUrl) { [weak self] (video) in
-            if self?.videoUrl == videoUrl, let video = video {
-                self?.videoPlayerItem = video
-            }
-        }
+        self.videoPlayerItem = AVPlayerItem(url: videoUrl)
     }
     
     override func layoutSubviews() {
@@ -80,7 +75,6 @@ class topCarouselCell: UICollectionViewCell {
     }
 
     @objc private func updatePlayerLayer() {
-        avPlayerLayer?.frame = videoView.bounds //CGRect(x: 0, y: 0, width: videoView.frame.size.width, height: videoView.frame.size.height)
-
+        avPlayerLayer?.frame = videoView.bounds
     }
 }

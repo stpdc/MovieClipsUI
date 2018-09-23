@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://github.com/stpdc/MovieClipsUI"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "stpdc" => "43500109+stpdc@users.noreply.github.com" }
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "11.0"
   s.source       = { :git => "http://github.com/stpdc/MovieClipsUI.git", :tag => "#{s.version}" }
   s.source_files  = "MovieClipsUI", "MovieClipsUI/**/*.{h,m,swift}"
 end

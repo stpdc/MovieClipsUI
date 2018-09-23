@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MovieClipsNetworking
 
 class MCClipsViewModel: NSObject {
     
