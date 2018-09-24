@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class MCClip: Codable {
+public class MCClipModel: Codable {
 
     public var id: Int
     public var imageUrl: URL

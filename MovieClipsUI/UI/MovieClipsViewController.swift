@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MovieClipsViewController: UIViewController {
+public class MovieClipsViewController: UIViewController {
 
-    var viewModel: MCClipsViewModel? {
+    public var viewModel: MCClipsViewModel? {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.loadModel()
@@ -21,7 +21,7 @@ class MovieClipsViewController: UIViewController {
     private var topView = TopVideoSlideshowView(contentType: .video)
     private var bottomView = BottomCarouselView(contentType: .image)
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

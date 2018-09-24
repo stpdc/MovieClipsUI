@@ -8,20 +8,20 @@
 
 import UIKit
 
-class MCClipsViewModel: NSObject {
+public class MCClipsViewModel: NSObject {
     
-    private var clips: [MCClip]
+    private var clips: [MCClipModel]
     
-    init(with clips: [MCClip]) {
+    public init(with clips: [MCClipModel]) {
         self.clips = clips
         super.init()
     }
     
-    var count: Int {
+    public var count: Int {
         return clips.count
     }
     
-    func videoUrl(at index: Int) -> URL? {
+    public func videoUrl(at index: Int) -> URL? {
         if index < clips.count {
             return clips[index].videoUrl
         } else {
@@ -29,7 +29,7 @@ class MCClipsViewModel: NSObject {
         }
     }
     
-    func imageUrl(at index: Int) -> URL? {
+    public func imageUrl(at index: Int) -> URL? {
         if index < clips.count {
             return clips[index].imageUrl
         } else {
