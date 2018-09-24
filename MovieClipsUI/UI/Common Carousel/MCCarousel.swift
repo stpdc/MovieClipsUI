@@ -44,7 +44,7 @@ class MCCarousel: UIView {
         addConstraint(collectionView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor))
         addConstraint(collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor))
         addConstraint(collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor))
-
+        
         switch contentType {
         case .video:
             collectionView.register(topCarouselCell.self, forCellWithReuseIdentifier: "topCarouselCellIdentifier")
@@ -99,9 +99,9 @@ class MCCarousel: UIView {
     func scrollTo(index: Int) {
         switch contentType {
         case .video:
-            collectionView.scrollToItem(at: IndexPath(row: index + 1, section: 0), at: .left, animated: true)
+            collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .left, animated: true)
         case .image:
-            collectionView.scrollToItem(at: IndexPath(row: index - 1, section: 0), at: .left, animated: true)
+            collectionView.scrollToItem(at: IndexPath(row: index - 2, section: 0), at: .left, animated: true)
         }
     }
 }
@@ -187,13 +187,13 @@ extension MCCarousel: UIScrollViewDelegate {
             else if firstVisibaleCellLocation < cellWidth/2 {
                 let offsetForNextItem = CGFloat(firstVisibleCellIndex) * (cellWidth + spacing) + leftInset
                 targetContentOffset.pointee.x = min(offsetForNextItem, maxOffset)
-                delegate?.willScrollTo(from: self, index: firstVisibleCellIndex)
-
+                delegate?.willScrollTo(from: self, index: firstVisibleCellIndex + 1)
+                
             } else {
                 let offsetForNextItem = CGFloat(firstVisibleCellIndex + 1) * (cellWidth + spacing) + leftInset
                 targetContentOffset.pointee.x = min(offsetForNextItem, maxOffset)
-                delegate?.willScrollTo(from: self, index: firstVisibleCellIndex + 1)
-
+                delegate?.willScrollTo(from: self, index: firstVisibleCellIndex + 2)
+                
             }
         } else {
             delegate?.willScrollTo(from: self, index: firstVisibleCellIndex + 1)
