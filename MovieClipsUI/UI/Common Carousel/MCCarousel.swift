@@ -129,12 +129,14 @@ extension MCCarousel: UICollectionViewDataSource {
         
         switch contentType {
         case .video:
-            if let cell = cell as? topCarouselCell, let viewModel = viewModel, let videoUrl = viewModel.videoUrl(at: indexPath.row) {
-                cell.config(videoUrl: videoUrl)
+            if let cell = cell as? topCarouselCell, let viewModel = viewModel {
+                let video = viewModel.video(at: indexPath.row)
+                cell.config(video: video)
             }
         case .image:
-            if let cell = cell as? bottomCarouselCell, let viewModel = viewModel, let imageUrl = viewModel.imageUrl(at: indexPath.row) {
-                cell.config(imageUrl: imageUrl)
+            if let cell = cell as? bottomCarouselCell, let viewModel = viewModel {
+                let image = viewModel.image(at: indexPath.row)
+                cell.config(image: image)
             }
         }
         
@@ -201,10 +203,14 @@ extension MCCarousel: UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateFocus()
+    }
+    
+    func updateFocus() {
         guard zoomAnimation == true else { return }
         
         for cell in collectionView.visibleCells {
-            updateCellSize(cell: cell, scrollViewOffset: scrollView.contentOffset)
+            updateCellSize(cell: cell, scrollViewOffset: collectionView.contentOffset)
         }
     }
     

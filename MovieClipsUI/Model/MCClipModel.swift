@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-public class MCClipModel: Codable {
+public class MCClipModel: NSObject {
 
     public var id: Int
     public var imageUrl: URL
@@ -19,5 +20,9 @@ public class MCClipModel: Codable {
         self.imageUrl = imageUrl
         self.videoUrl = videoUrl
     }
+    
+    public var image: UIImage?
+    
+    public var video: AVPlayerItem?
     
 }

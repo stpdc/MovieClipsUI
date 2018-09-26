@@ -12,8 +12,6 @@ class bottomCarouselCell: UICollectionViewCell {
     
     private var cellImageView = UIImageView()
     
-    private var imageUrl: URL?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -41,16 +39,9 @@ class bottomCarouselCell: UICollectionViewCell {
         addConstraint(cellImageView.bottomAnchor.constraint(equalTo: bottomAnchor))
     }
     
-    func config(imageUrl: URL) {
-        
-        self.imageUrl = imageUrl
-    
-        getData(from: imageUrl) { [weak self] (data, response, error) in
-            guard let data = data, let image = UIImage(data: data) else {
-                return
-            }
-            
-            self?.cellImageView.image = image
+    func config(image: UIImage?) {
+        if let image = image {
+            self.cellImageView.image = image
         }
     }
     

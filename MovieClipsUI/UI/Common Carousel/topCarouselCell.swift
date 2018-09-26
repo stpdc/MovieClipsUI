@@ -10,9 +10,7 @@ import UIKit
 import AVFoundation
 
 class topCarouselCell: UICollectionViewCell {
-    
-    private var videoUrl: URL?
-    
+        
     private var videoView = UIView()
     private var avPlayer: AVPlayer?
     private var avPlayerLayer: AVPlayerLayer?
@@ -62,10 +60,8 @@ class topCarouselCell: UICollectionViewCell {
         avPlayer?.seek(to: CMTime(seconds: 0, preferredTimescale: 1))
     }
     
-    func config(videoUrl: URL) {
-        
-        self.videoUrl = videoUrl
-        self.videoPlayerItem = AVPlayerItem(url: videoUrl)
+    func config(video: AVPlayerItem?) {
+        self.videoPlayerItem = video
     }
     
     override func layoutSubviews() {

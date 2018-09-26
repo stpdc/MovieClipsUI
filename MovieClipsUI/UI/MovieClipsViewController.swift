@@ -67,11 +67,21 @@ public class MovieClipsViewController: UIViewController {
         }
         
         topView.viewModel = viewModel
-        bottomView.viewModel = viewModel        
+        bottomView.viewModel = viewModel
     }
     
     private func resetViews() {
         
+    }
+}
+
+extension MovieClipsViewController: MCClipsViewModelDelegate {
+    public func updateImageItem(at index: Int) {
+        bottomView.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+    }
+    
+    public func updateVideoItem(at index: Int) {
+        topView.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
     }
 }
 
